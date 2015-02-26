@@ -9,7 +9,7 @@ module.exports = function(karma){
       "build/math-test.js"
     ],
 
-    browsers: ['PhantomJs'],
+    browsers: ['PhantomJS'],
 
     singleRun: true,
     autoWatch: false
