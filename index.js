@@ -2,7 +2,7 @@ module.exports = applyTransform;
 
 var through = require('through2');
 var applySourceMap = require('vinyl-sourcemaps-apply');
-var myTransform = require('ng-test-utils/src/ngInject');
+var myTransform = require('ng-test-utils');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var merge = require('merge');

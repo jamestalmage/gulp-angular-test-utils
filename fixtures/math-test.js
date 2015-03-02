@@ -1,6 +1,15 @@
 describe('math', function() {
   beforeEach(module('math'));
 
+  // @ngProvide
+  var sum = function(){
+    var total = 0;
+    for(var i = 0; i < arguments.length; i++){
+      total = add(total, arguments[i]);
+    }
+    return total;
+  };
+
   // @ngInject
   var add, subtract;
 
@@ -12,6 +21,12 @@ describe('math', function() {
   it('subtract', function(){
     var result = subtract(4, 2);
     assert.equals(2, result);
+  });
+
+  it('sum', function(){
+    inject(function(sum){
+      assert.equals(sum(1,2,3,4,5),15);
+    });
   });
 
   var assert = {
