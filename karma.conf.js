@@ -9,7 +9,13 @@ module.exports = function(karma){
       "build/math-test.js"
     ],
 
-    browsers: ['PhantomJS'],
+    // Use PhantomJS for Travis CI builds.
+    // PhantomJS does not have source-map support, so use Chrome for testing that on developer machines
+    browsers: [ process.env.TRAVIS ? 'PhantomJS' : 'Chrome'],
+
+    preprocessors: {
+      '**/*.js':'sourcemap'
+    },
 
     singleRun: true,
     autoWatch: false

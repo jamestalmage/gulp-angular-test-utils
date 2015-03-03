@@ -17,16 +17,19 @@ function applyTransform(options) {
     var result;
     var src = file.contents.toString('utf8');
 
-    var recastOptions = merge({}, options.recast);
+    var transformOptions = merge({}, options.recast);
     if (file.sourceMap) {
-      recastOptions.sourceFileName = file.path;
+      transformOptions.sourceMap = true;
+      transformOptions.inputSourceMap = null;
+      transformOptions.sourceFileName = file.path;
+      transformOptions.appendSourceMapComment = false;
     }
     else {
-      delete recastOptions.sourceFileName;
+      transformOptions.sourceMap = false;
     }
 
     try {
-      result = myTransform(src, recastOptions);
+      result = myTransform(src, transformOptions);
     }
     catch (err) {
       return cb(new PluginError('angular-test-utils', err));

@@ -23,10 +23,8 @@ describe('math', function() {
     assert.equals(2, result);
   });
 
-  it('sum', function(){
-    inject(function(sum){
-      assert.equals(sum(1,2,3,4,5),15);
-    });
+  it('total', function(){
+    assert.equals(sum(1,2,3,4,5),15);
   });
 
   var assert = {
