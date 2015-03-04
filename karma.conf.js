@@ -20,5 +20,4 @@ module.exports = function(karma){
     singleRun: true,
     autoWatch: false
   });
-
 };
