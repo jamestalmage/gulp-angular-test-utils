@@ -1,4 +1,3 @@
-require('source-map-support').install();
 var gulp = require('gulp');
 var plugin = require('./');
 var sourcemaps = require('gulp-sourcemaps');
