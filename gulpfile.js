@@ -76,36 +76,18 @@ gulp.task('default', [
   'validate-no-source-maps'
 ]);
 
-/**
- * Creates a karma configuration for
- **/
-var port = 9876;
 function karmaConf(prefix, error){
-  return {
-    frameworks: ['mocha'],
-
-    files: [
+  return testUtils.karmaTemplate(prefix, error,
+    [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'build/' + prefix + '/math.js',
-      'build/' + prefix + '/math-test' + (error ? '-error.js' : '.js')
+      'build/{prefix}/math.js',
+      'build/{prefix}/math-test{error}.js'
     ],
-
-    port: port++,
-
-    browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
-
-    preprocessors: {
-      '**/*.js':'sourcemap'
-    },
-
-    reporters: ['junit'],
-
-    junitReporter:{
-      outputFile: 'build/' + prefix + (error ? '-error-report.xml' : '-report.xml')
-    },
-
-    singleRun: true,
-    autoWatch: false
-  };
+    {
+      preprocessors: {
+        '**/*.js':'sourcemap'
+      }
+    }
+  )
 }
