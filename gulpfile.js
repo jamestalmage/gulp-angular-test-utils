@@ -24,7 +24,7 @@ gulp.task('karma-gulp-source-maps', ['instrument-files-gulp-source-maps'], funct
 gulp.task('karma-gulp-source-maps-error', ['instrument-files-gulp-source-maps'], function(cb) {
   karma.start(karmaConf('gulp-source-maps', true), validateErrorMapping(
     './build/gulp-source-maps-error-report.xml',
-    /math-test-error.js:28:11/,
+    /math-test-error.js:28:(5|11)/,   //Browsers differ- they measure from either start of `throw` or start of `new Error`
     cb
   ));
 });
@@ -48,7 +48,7 @@ gulp.task('karma-internal-source-maps', ['instrument-files-internal-source-maps'
 gulp.task('karma-internal-source-maps-error', ['instrument-files-internal-source-maps'], function(cb) {
   karma.start(karmaConf('internal-source-maps', true), validateErrorMapping(
     './build/internal-source-maps-error-report.xml',
-    /math-test-error.js:28:11/,
+    /math-test-error.js:28:(5|11)/, //Browsers differ- they measure from either start of `throw` or start of `new Error`
     cb
   ));
 });
