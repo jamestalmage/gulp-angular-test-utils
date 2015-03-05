@@ -17,16 +17,11 @@ function applyTransform(options) {
     var result;
     var src = file.contents.toString('utf8');
 
-    var transformOptions = merge({}, options.recast);
-    if (file.sourceMap) {
-      transformOptions.sourceMap = true;
-      transformOptions.inputSourceMap = null;
-      transformOptions.sourceFileName = file.path;
-      transformOptions.appendSourceMapComment = false;
-    }
-    else {
-      transformOptions.sourceMap = false;
-    }
+    var transformOptions = merge({
+      sourceMap: !!file.sourceMap,
+      sourceFileName: file.path,
+      appendSourceMapComments: !file.sourceMap
+    }, options);
 
     try {
       result = myTransform(src, transformOptions);

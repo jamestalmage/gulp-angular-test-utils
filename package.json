@@ -6,9 +6,11 @@
   "dependencies": {
     "gulp-util": "^3.0.4",
     "merge": "^1.2.0",
-    "ng-test-utils": "0.0.7",
     "through2": "^0.6.3",
     "vinyl-sourcemaps-apply": "^0.1.4"
+  },
+  "peerDependencies":{
+    "ng-test-utils": "0.0.x"
   },
   "devDependencies": {
     "angular": "^1.3.14",
@@ -23,7 +25,10 @@
     "mocha": "^2.1.0"
   },
   "scripts": {
-    "test": "gulp"
+    "test": "npm i ng-test-utils@0.0.x && gulp",
+    "test-neighbor": "npm i ../angular-test-utils && gulp",
+    "test-super": "npm i .. && gulp",
+    "clean": "rm -rf node_modules"
   },
   "repository": {
     "type": "git",
