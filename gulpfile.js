@@ -84,7 +84,7 @@ gulp.task('default', [
 function validateErrorMapping(path, test, cb) {
   return function (e) {
     if (e) {
-      var report = fs.readFileSync(path);
+      var report = fs.readFileSync(path).toString();
       if (test.test(report)) {
         cb();
       }
