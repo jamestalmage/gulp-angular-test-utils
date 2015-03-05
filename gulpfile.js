@@ -89,6 +89,7 @@ function validateErrorMapping(path, test, cb) {
         cb();
       }
       else {
+        console.log(report);
         cb(new Error('bad source mapping'));
       }
     }
