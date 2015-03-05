@@ -1,9 +1,8 @@
 var gulp = require('gulp');
 var plugin = require('./');
 var sourcemaps = require('gulp-sourcemaps');
-var fs = require('fs');
 var karma = require('karma').server;
-var convert = require('convert-source-map');
+var testUtils = require('angular-test-utils-test-utils');
 
 
 // --------------------------- //
@@ -22,7 +21,7 @@ gulp.task('karma-gulp-source-maps', ['instrument-files-gulp-source-maps'], funct
 });
 
 gulp.task('karma-gulp-source-maps-error', ['instrument-files-gulp-source-maps'], function(cb) {
-  karma.start(karmaConf('gulp-source-maps', true), validateErrorMapping(
+  karma.start(karmaConf('gulp-source-maps', true), testUtils.validateErrorMapping(
     './build/gulp-source-maps-error-report.xml',
     /math-test-error.js:28:(5|11)/,   //Browsers differ- they measure from either start of `throw` or start of `new Error`
     cb
@@ -46,7 +45,7 @@ gulp.task('karma-internal-source-maps', ['instrument-files-internal-source-maps'
 });
 
 gulp.task('karma-internal-source-maps-error', ['instrument-files-internal-source-maps'], function(cb) {
-  karma.start(karmaConf('internal-source-maps', true), validateErrorMapping(
+  karma.start(karmaConf('internal-source-maps', true), testUtils.validateErrorMapping(
     './build/internal-source-maps-error-report.xml',
     /math-test-error.js:28:(5|11)/, //Browsers differ- they measure from either start of `throw` or start of `new Error`
     cb
@@ -64,13 +63,9 @@ gulp.task('instrument-files-no-source-maps', function() {
 });
 
 gulp.task('validate-no-source-maps', ['instrument-files-no-source-maps'], function() {
-  ['math.js','math-test.js','math-test-error.js'].forEach(function(fileName) {
-    var path = './build/no-source-maps/' + fileName;
-    var code = fs.readFileSync(path).toString();
-    if(convert.fromSource(code) !== null){
-      throw new Error(path + ': found a source map when I should not have');
-    }
-  });
+  ['./build/no-source-maps/math.js',
+    './build/no-source-maps/math-test.js',
+    './build/no-source-maps/math-test-error.js'].forEach(testUtils.validateNoSourceMap);
 });
 
 gulp.task('default', [
@@ -80,24 +75,6 @@ gulp.task('default', [
   'karma-internal-source-maps-error',
   'validate-no-source-maps'
 ]);
-
-function validateErrorMapping(path, test, cb) {
-  return function (e) {
-    if (e) {
-      var report = fs.readFileSync(path).toString();
-      if (test.test(report)) {
-        cb();
-      }
-      else {
-        console.log(report);
-        cb(new Error('bad source mapping'));
-      }
-    }
-    else {
-      cb(new Error('expected error'));
-    }
-  };
-}
 
 /**
  * Creates a karma configuration for
