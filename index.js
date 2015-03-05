@@ -20,7 +20,7 @@ function applyTransform(options) {
     var transformOptions = merge({
       sourceMap: !!file.sourceMap,
       sourceFileName: file.path,
-      appendSourceMapComments: !file.sourceMap
+      appendSourceMapComment: !file.sourceMap
     }, options);
 
     try {
@@ -33,7 +33,7 @@ function applyTransform(options) {
     file.contents = new Buffer(result.code);
 
     // apply source map to the chain
-    if (file.sourceMap) {
+    if (file.sourceMap && transformOptions.sourceMap && !transformOptions.appendSourceMapComment) {
       applySourceMap(file, result.map);
     }
 

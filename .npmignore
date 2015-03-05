@@ -1,0 +1,11 @@
+.idea
+node_modules
+build
+coverage
+*.log
+
+
+# npmignore
+gulpfile.js
+.travis.yml
+fixtures/
