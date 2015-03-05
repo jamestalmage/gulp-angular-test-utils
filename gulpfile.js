@@ -54,9 +54,9 @@ gulp.task('karma-internal-source-maps-error', ['instrument-files-internal-source
 });
 
 
-// -------------------------------- //
-// use internal source-map handling //
-// -------------------------------- //
+// --------------------------------- //
+// production build / no source-maps //
+// --------------------------------- //
 gulp.task('instrument-files-no-source-maps', function() {
   return gulp.src('./fixtures/*.js')
     .pipe(plugin())
