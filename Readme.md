@@ -2,8 +2,9 @@ gulp-ng-test-utils
 ------------------
 
 Gulp is a great build system, but most users will benefit more by using the
-[karma-preprocessor] to apply the transforms for your test code. If you're not using
-karma, or have a need to package your tests with the transforms include, then read on.
+[karma-preprocessor](https://github.com/jamestalmage/karma-angular-test-utils)
+to apply the transforms for your test code. If you are not using karma,
+or have a need to package your tests with the transforms include, then read on.
 
 Install:
 ```
