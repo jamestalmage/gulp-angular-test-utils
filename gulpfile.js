@@ -68,13 +68,15 @@ gulp.task('validate-no-source-maps', ['instrument-files-no-source-maps'], functi
     './build/no-source-maps/math-test-error.js'].forEach(testUtils.validateNoSourceMap);
 });
 
-gulp.task('default', [
+gulp.task('success', [
   'karma-gulp-source-maps',
   'karma-gulp-source-maps-error',
   'karma-internal-source-maps',
   'karma-internal-source-maps-error',
   'validate-no-source-maps'
-]);
+], testUtils.success);
+
+gulp.task('default',['success']);
 
 function karmaConf(prefix, error){
   return testUtils.karmaTemplate(prefix, error,
