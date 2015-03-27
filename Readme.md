@@ -1,4 +1,4 @@
-gulp-ng-test-utils
+gulp-tang
 ------------------
 
 Gulp is a great build system, but most users will benefit more by using the
@@ -8,7 +8,7 @@ or have a need to package up your tests with the transforms applied, then read o
 
 Install:
 ```
-npm install --save-dev ng-test-utils gulp-ng-test-utils
+npm install --save-dev tang gulp-tang
 ```
 
 Since this is all about testing, you almost certainly want to enable source-maps.
@@ -19,25 +19,25 @@ together with others that support `gulp-sourcemaps`.
 
 ```javascript
 var gulp = require('gulp');
-var ngTestUtils = require('gulp-ng-test-utils');
+var tang = require('gulp-tang');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('instrument-test-files', function (){
   return gulp.src('tests/*.js')
     .pipe(sourcemaps.init())
-    .pipe(ngTestUtils())
+    .pipe(tang())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/tests'))
 });
 ```
 
-Using ng-test-utils internal source map support is handy if it is the only transform being applied
+Using `tang`s internal source map support is handy if it is the only transform being applied
 to your test code, or if up/downstream transforms do not support `gulp-sourcemaps`.
 
 ```javascript
 gulp.task('instrument-test-files', function() {
   return gulp.src('tests/*.js')
-    .pipe(plugin({
+    .pipe(tang({
       sourceMap:true
     }))
     .pipe(gulp.dest('build/tests'))
