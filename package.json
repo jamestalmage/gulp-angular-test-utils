@@ -1,6 +1,6 @@
 {
   "name": "gulp-tang",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "ng-test-utils for gulp",
   "main": "index.js",
   "dependencies": {
