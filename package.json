@@ -1,7 +1,7 @@
 {
   "name": "gulp-tang",
   "version": "0.1.0",
-  "description": "ng-test-utils for gulp",
+  "description": "tang for gulp",
   "main": "index.js",
   "dependencies": {
     "gulp-util": "^3.0.4",
@@ -27,7 +27,7 @@
     "mocha": "^2.1.0"
   },
   "scripts": {
-    "test": "rm -rf build && npm i ng-test-utils@0.0.x && gulp",
+    "test": "rm -rf build && npm i tang@0.1.x && gulp",
     "test-neighbor": "npm i ../angular-test-utils && gulp",
     "test-super": "npm i .. && gulp",
     "clean": "rm -rf node_modules build"

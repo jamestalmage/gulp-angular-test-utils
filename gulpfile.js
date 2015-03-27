@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var plugin = require('./');
+var tang = require('./');
 var sourcemaps = require('gulp-sourcemaps');
 var karma = require('karma').server;
 var testUtils = require('angular-test-utils-test-utils');
@@ -11,7 +11,7 @@ var testUtils = require('angular-test-utils-test-utils');
 gulp.task('instrument-files-gulp-source-maps', function (){
   return gulp.src('./fixtures/*.js')
     .pipe(sourcemaps.init())
-    .pipe(plugin())
+    .pipe(tang())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/gulp-source-maps'))
 });
@@ -34,7 +34,7 @@ gulp.task('karma-gulp-source-maps-error', ['instrument-files-gulp-source-maps'],
 // -------------------------------- //
 gulp.task('instrument-files-internal-source-maps', function() {
   return gulp.src('./fixtures/*.js')
-    .pipe(plugin({
+    .pipe(tang({
       sourceMap:true
     }))
     .pipe(gulp.dest('build/internal-source-maps'))
@@ -58,7 +58,7 @@ gulp.task('karma-internal-source-maps-error', ['instrument-files-internal-source
 // --------------------------------- //
 gulp.task('instrument-files-no-source-maps', function() {
   return gulp.src('./fixtures/*.js')
-    .pipe(plugin())
+    .pipe(tang())
     .pipe(gulp.dest('build/no-source-maps'))
 });
 
