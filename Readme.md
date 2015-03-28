@@ -2,10 +2,13 @@ gulp-tang
 ---------
 Thirsty for for leaner Angular tests? Gulp some [tang](https://github.com/jamestalmage/tang)!
 
-Gulp is a great build system, but most users will benefit more by using the
-[karma-preprocessor](https://github.com/jamestalmage/karma-tang)
-to apply the transforms for their tests. If you are not using karma,
-or have a need to package up your tests with the transforms applied, then read on.
+[Tang](https://github.com/jamestalmage/tang) provides a series of annotations that make it easier
+to test your angular code. See the [tang readme](https://github.com/jamestalmage/tang) to understand what
+is possible.
+
+Many users will probably get more benefit from using the [karma-preprocessor](https://github.com/jamestalmage/karma-tang)
+to apply the transforms for their tests. If you are not using karma, or have a need to package up your tests with the
+transforms applied, then read on.
 
 Install:
 ```
