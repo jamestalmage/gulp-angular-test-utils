@@ -1,5 +1,7 @@
 gulp-ng-test-utils
 ------------------
+This project has changed it's name to [gulp-tang](https://github.com/jamestalmage/gulp-tang).
+All further updates will be under the new name. Change your dependencies now!
 
 Gulp is a great build system, but most users will benefit more by using the
 [karma-preprocessor](https://github.com/jamestalmage/karma-angular-test-utils)
