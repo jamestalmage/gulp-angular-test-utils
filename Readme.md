@@ -1,8 +1,9 @@
 gulp-tang
-------------------
+---------
+Thirsty for for leaner Angular tests? Gulp some [tang](https://github.com/jamestalmage/tang)!
 
 Gulp is a great build system, but most users will benefit more by using the
-[karma-preprocessor](https://github.com/jamestalmage/karma-angular-test-utils)
+[karma-preprocessor](https://github.com/jamestalmage/karma-tang)
 to apply the transforms for their tests. If you are not using karma,
 or have a need to package up your tests with the transforms applied, then read on.
 
@@ -44,5 +45,5 @@ gulp.task('instrument-test-files', function() {
 });
 ```
 
-Check out the `examples` and `gulpfile.js` folder on [github](https://github.com/jamestalmage/gulp-angular-test-utils)
+Check out the `examples` and `gulpfile.js` folder on [github](https://github.com/jamestalmage/gulp-tang)
 for more ideas.

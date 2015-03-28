@@ -28,23 +28,22 @@
   },
   "scripts": {
     "test": "rm -rf build && npm i tang@0.1.x && gulp",
-    "test-neighbor": "npm i ../angular-test-utils && gulp",
-    "test-super": "npm i .. && gulp",
     "clean": "rm -rf node_modules build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jamestalmage/gulp-angular-test-utils.git"
+    "url": "https://github.com/jamestalmage/gulp-tang.git"
   },
   "keywords": [
     "gulp",
     "angular",
-    "testing"
+    "testing",
+    "gulpplugin"
   ],
   "author": "James Talmage",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamestalmage/gulp-angular-test-utils/issues"
+    "url": "https://github.com/jamestalmage/gulp-tang/issues"
   },
-  "homepage": "https://github.com/jamestalmage/gulp-angular-test-utils"
+  "homepage": "https://github.com/jamestalmage/gulp-tang"
 }
